@@ -1,0 +1,25 @@
+# R environment files
+.RData
+.Rhistory
+.Rproj.user/
+
+# macOS
+.DS_Store
+
+# Temporary files
+*.tmp
+*~
+
+# IDE
+.vscode/
+.idea/
+
+# Output files that can be regenerated
+*.pdf
+*.png
+*.html
+
+# Keep the Rdata files for replication (do NOT ignore these)
+# replication_data.Rdata
+# replication_results.Rdata
+# sensitivity_K_results.Rdata
