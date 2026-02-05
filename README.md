@@ -42,7 +42,7 @@ Running `replication.R` will generate:
 |--------|-------------|
 | Figure 5 | CLR tracking plots showing ultimate cumulative loss predictions evolving as more lags become known |
 | Figure 6 | Prediction plots with 95% confidence intervals for representative companies |
-| Figure 9 | Grid plots showing ILR (Incremental Loss Ratio) and CLR (Cumulative Loss Ratio) for each lag m=1-9 |
+| Figure 9 | Grid plots showing ILR (Incremental Loss Ratio) and CLR (Cumulative Loss Ratio) for each lag s=1-9 |
 
 **Note:** Plots use loss ratios (not dollar amounts) since EP is normalized to 1.0 in the replication data.
 
