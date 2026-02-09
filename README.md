@@ -178,12 +178,12 @@ No raw loss dollar amounts or identifiable company information is included.
 
 ## Citation
 
-If you use this code, please cite: [Paper citation to be added]
+If you use this code, please cite: [Charpentier, A., Guo, Q., & Ludkovski, M. (2025). Functional Analysis of Loss-development Patterns in P&C Insurance. arXiv preprint arXiv:2510.27204.]
 
 ## Contact
 
-For questions about the methodology or code, please contact: [Contact information to be added]
+For questions about the methodology or code, please contact: qguo@bsu.edu
 
 ## License
 
-[License to be added]
+MIT License
