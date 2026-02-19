@@ -22,20 +22,78 @@ source("replication.R")
 
 This script uses pre-computed results and does not require access to the raw proprietary data.
 
+## Usage Examples
+
+After running `source("replication.R")`, the pre-computed objects are loaded into the workspace. The following examples illustrate how to use the key functions with the three sample companies (P53, C260, P1406).
+
+### Chain Ladder Analysis
+
+```r
+# Run chain ladder for company C260
+company <- "C260"
+cl_result <- cl(company)
+print(cl_result$reserve)
+```
+
+### PLS Prediction Intervals
+
+```r
+# Get pointwise prediction intervals for company C260 at lag 5
+company <- "C260"
+m <- 5
+pls_result <- pls_interval(m, company, test_cov_list, test_matrix_list,
+                           pred_list, boot_pred_b_list)
+print(pls_result$bounds_c95)
+```
+
+### Depth-Based Functional Prediction Intervals
+
+```r
+# Get EXD-based functional prediction intervals for company C260 at lag 5
+company <- "C260"
+m <- 5
+depth_result <- depth_interval(m, company, test_cov_list, test_matrix_list,
+                               pred_list, boot_pred_b_list,
+                               method = "extremal", ef = 2.5)
+print(depth_result$bounds_c95)
+```
+
+### Forecast Visualization
+
+```r
+# Plot CLR tracking for company P53 (predictions evolving as lags increase)
+predict_clr_tracking_fix("P53")
+
+# Plot prediction with confidence intervals for company P1406 at lag 3
+predict_plot("P1406", m = 3, test_cov_list, test_matrix_list,
+             pred_list, boot_pred_b_list)
+```
+
+### Coverage and Interval Score Evaluation
+
+```r
+# Calculate coverage and interval scores across all sample companies
+scores <- calculate_coverage_score(company_list, test_cov_list,
+                                   test_matrix_list, pred_list,
+                                   boot_pred_b_list)
+print(scores$coverage)
+print(scores$interval_score)
+```
+
 ## Expected Output
 
 Running `replication.R` will generate:
 
 ### Tables
-| Table | Description |
+| Paper Reference | Description |
 |-------|-------------|
-| Table 6 | Optimal parameters (K, λ, MAPE) for full analysis by development lag |
-| Table 7 | MAPE comparison across all K values (1-9) for sensitivity analysis |
-| Table 8 | Ultimate coverage by K value (EXD method) |
-| Table 9 | Functional coverage by K value (EXD method) |
-| Table 10 | Ultimate interval score by K value (EXD method) |
-| Table 11 | Functional interval score by K value (EXD method) |
-| Table 12 | Residual function i.i.d. test results (Shapiro, Ljung-Box, Runs) |
+| Table 1 | Optimal parameters (K, λ, MAPE) for full analysis by development lag |
+| Table B.1 | MAPE comparison across all K values (1-9) for sensitivity analysis |
+| Table B.2 | Ultimate coverage by K value (EXD method) |
+| Table B.3 | Functional coverage by K value (EXD method) |
+| Table B.4 | Ultimate interval score by K value (EXD method) |
+| Table B.5 | Functional interval score by K value (EXD method) |
+| Table B.6 | Residual function i.i.d. test results (Shapiro, Ljung-Box, Runs) |
 
 ### Figures
 | Figure | Description |
